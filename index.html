@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Img size</title>
+        <style>
+            .bg {
+    background-size: cover;
+}
+        </style>
+    </head>
+    <body>
+        <img class="bg" id="image"  width="200" height="100" />
+        <input type="file" id="imgInput">
+        <script>
+document.querySelector("#imgInput").addEventListener("change", function () {
+  if (this.files[0]) {
+    var fr = new FileReader();
+
+    fr.addEventListener("load", function () {
+      document.querySelector("#image").src = fr.result ;
+    }, false);
+
+    fr.readAsDataURL(this.files[0]);
+  }
+});
+        </script>
+    </body>
+</html>
